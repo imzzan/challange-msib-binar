@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+/* Modal cari car */
+.modal-cari-mobil {
+    width: 80%;
+    padding: 40px 20px;
+    margin-top: -50px;
+    position: relative;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.item-modal {
+    width: 200px;
+}
+
+.input-cari-mobil {
+    height: 36px;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+.text-cari-mobil {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+}
+
+.text-jika-salah {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: rgb(224, 64, 64);
+    text-align: center;
+    margin-top: 13px;
+}
+
+/*Continar Card Mobil */
+.conatainer-card-mobil {
+    width: 80%;
+}
+
+.text-sewa-mobil {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.text-harga-sewa-mobil {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.image-card {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.text-desc-sewa-mobil {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+  }
+
+/* Mobile */
+@media only screen and (max-width: 768px)  {
+    .modal-cari-mobil{
+        width: 100%;
+        margin-top: -20px;
+    }
+    .item-modal {
+        width: 100%;
+    }
+    /* Container Section Card */
+    .conatainer-card-mobil{
+        width: 100%;
+    }
+}

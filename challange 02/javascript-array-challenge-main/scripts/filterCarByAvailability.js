@@ -1,0 +1,21 @@
+function filterCarByAvailability(cars) {
+  // Sangat dianjurkan untuk console.log semua hal hehe
+  console.log(cars);
+
+  // Tempat penampungan hasil
+  const result = [];
+
+  // Tulis code-mu disini
+
+  // Mamasukan data ke dalam varibale result dan memfilter data
+  for (let i = 0; i < cars.length; i++) {
+    if(cars[i].available) {
+      result.push(cars[i]);
+    }
+  }
+
+  console.log(result);
+
+  // Rubah code ini dengan array hasil filter berdasarkan availablity
+  return result;
+}

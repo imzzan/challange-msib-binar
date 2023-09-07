@@ -1,4 +1,4 @@
-class App {
+class Car {
   constructor() {
     this.carContainerElement = document.getElementById("cars-container");
     this.btnCariMobil = document.getElementById("btn-cari-mobil");
@@ -7,11 +7,14 @@ class App {
     this.waktuAmbil = document.getElementById("waktu-ambil");
     this.jumblahPenumpang = document.getElementById("jumlah-penumpang");
     this.textJikaSalah = document.getElementById("text-jika-salah");
+    this.btnResetMobil = document.getElementById("btn-reset-mobil");
   }
 
   async init() {
     await this.load();
     this.btnCariMobil.onclick = this.run;
+    this.btnResetMobil.style.display = "none";
+    this.btnResetMobil.onclick = this.clear;
   }
 
   run = () => {
@@ -49,12 +52,26 @@ class App {
           node.innerHTML = item.render();
           this.carContainerElement.appendChild(node);
         });
-        this.textJikaSalah.innerHTML = ''
+        this.textJikaSalah.innerHTML = '';
+        this.btnResetMobil.style.display = 'block';
+        this.btnCariMobil.style.display = 'none';
     }
   };
 
   async load() {
     const cars = await Binar.listCars();
     Component.init(cars);
-  }
+  };
+
+  clear = () => {
+    location.reload()
+    let child = this.carContainerElement.firstElementChild;
+    this.btnCariMobil.style.display = 'block';
+    this.btnResetMobil.style.display = 'none';
+    
+    while (child) {
+      child.remove();
+      child = this.carContainerElement.firstElementChild;
+    }
+  };
 }

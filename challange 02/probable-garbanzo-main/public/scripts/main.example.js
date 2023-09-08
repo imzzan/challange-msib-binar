@@ -14,4 +14,4 @@ console.log(params);
  * */
 const app = new Car();
 
-app.init();
+app.init()

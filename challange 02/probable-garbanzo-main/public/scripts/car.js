@@ -31,9 +31,9 @@ class Car {
     console.log(this.jumblahPenumpang.value);
 
     if (
-      valueDriverTipe == '' ||
-      dateWaktuAmbil == 'Invalid Date' ||
-      this.jumblahPenumpang.value == ''
+      valueDriverTipe === '' ||
+      dateWaktuAmbil === 'Invalid Date' ||
+      this.jumblahPenumpang.value === ''
     ) {
       this.textJikaSalah.innerHTML = 'Please pilih option dengan benar!!'
     } else {
@@ -41,6 +41,7 @@ class Car {
         .filter((item) => {
           return (
             item.transmission == valueDriverTipe &&
+            new Date(item.availableAt).getTime() >= dateWaktuAmbil &&
             item.available &&
             item.capacity >= this.jumblahPenumpang.value
           );

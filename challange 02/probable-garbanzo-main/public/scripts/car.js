@@ -31,9 +31,9 @@ class Car {
     console.log(this.jumblahPenumpang.value);
 
     if (
-      valueDriverTipe == null ||
+      valueDriverTipe == '' ||
       dateWaktuAmbil == 'Invalid Date' ||
-      this.jumblahPenumpang.value == null
+      this.jumblahPenumpang.value == ''
     ) {
       this.textJikaSalah.innerHTML = 'Please pilih option dengan benar!!'
     } else {

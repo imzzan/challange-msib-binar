@@ -29,47 +29,54 @@ class Car {
     console.log(valueDriverTipe);
     console.log(dateWaktuAmbil);
     console.log(this.jumblahPenumpang.value);
+    const node = document.createElement("div");
+    this.carContainerElement.appendChild(node);
 
     if (
-      valueDriverTipe === '' ||
-      dateWaktuAmbil === 'Invalid Date' ||
-      this.jumblahPenumpang.value === ''
+      valueDriverTipe === "" ||
+      dateWaktuAmbil === "Invalid Date" ||
+      this.jumblahPenumpang.value === ""
     ) {
-      this.textJikaSalah.innerHTML = 'Please pilih option dengan benar!!'
+      this.textJikaSalah.innerHTML = "Please pilih option dengan benar!!";
     } else {
       Component.list
         .filter((item) => {
-          return (
-            item.transmission == valueDriverTipe &&
-            new Date(item.availableAt).getTime() >= dateWaktuAmbil &&
-            item.available &&
-            item.capacity >= this.jumblahPenumpang.value
-          );
+          if (new Date(item.availableAt).getTime() < dateWaktuAmbil) {
+            node.classList.add('text-center');
+            node.classList.add('text-danger')
+            node.innerText =
+              "Yahhh Sorry Banget nih mobil pada tanggal tersebut tidak tersedia:)";
+          } else {
+            return (
+              item.transmission === valueDriverTipe &&
+              new Date(item.availableAt).getTime() >= dateWaktuAmbil &&
+              item.available &&
+              item.capacity >= this.jumblahPenumpang.value
+            );
+          }
         })
         .map((item) => {
-          const node = document.createElement("div");
           node.classList.add("col-lg-4");
           node.classList.add("col-12");
           node.innerHTML = item.render();
-          this.carContainerElement.appendChild(node);
         });
-        this.textJikaSalah.innerHTML = '';
-        this.btnResetMobil.style.display = 'block';
-        this.btnCariMobil.style.display = 'none';
+      this.textJikaSalah.innerHTML = "";
+      this.btnResetMobil.style.display = "block";
+      this.btnCariMobil.style.display = "none";
     }
   };
 
   async load() {
     const cars = await Binar.listCars();
     Component.init(cars);
-  };
+  }
 
   clear = () => {
-    location.reload()
+    location.reload();
     let child = this.carContainerElement.firstElementChild;
-    this.btnCariMobil.style.display = 'block';
-    this.btnResetMobil.style.display = 'none';
-    
+    this.btnCariMobil.style.display = "block";
+    this.btnResetMobil.style.display = "none";
+
     while (child) {
       child.remove();
       child = this.carContainerElement.firstElementChild;

@@ -4,17 +4,17 @@ const { dataCars } = require("../model/cars.js");
 const createCar = (req, res) => {
   try {
     const id = Math.round(Math.random() * 123456789);
-    const { rentPerDay, capacity, desc, availableAt } = req.body;
+    const { rentPerDay, capacity, description, availableAt } = req.body;
     const images = req.file.path;
 
-    if (!rentPerDay || !capacity || !desc || !availableAt || !images) {
+    if (!rentPerDay || !capacity || !description || !availableAt || !images) {
       return res
         .status(400)
         .json({ message: "Please masukan data dengan benar" });
     }
 
-    dataCars.push({ id, rentPerDay, capacity, desc, availableAt, images });
-    const newData = { id, rentPerDay, capacity, desc, availableAt, images };
+    dataCars.push({ id, rentPerDay, capacity, description, availableAt, images });
+    const newData = { id, rentPerDay, capacity, description, availableAt, images };
     res.status(201).json({ message: "Create data successfully", newData });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -51,13 +51,13 @@ const updateCar = (req, res) => {
   try {
     const id = req.params.id;
     const newId = Math.round(Math.random() * 123456789);
-    const { rentPerDay, capacity, desc, availableAt } = req.body;
+    const { rentPerDay, capacity, description, availableAt } = req.body;
     const images = req.file.path;
     const getCarById = dataCars.find((item) => item.id === Number(id));
     getCarById.id = newId;
     getCarById.rentPerDay = rentPerDay;
     getCarById.capacity = capacity;
-    getCarById.desc = desc;
+    getCarById.description = description;
     getCarById.availableAt = availableAt;
     getCarById.images = images;
     res

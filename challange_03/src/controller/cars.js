@@ -1,9 +1,10 @@
-const { dataCars } = require("../model/cars.js");
+let { dataCars } = require("../model/cars.js");
+const { v4: uuidv4 } = require("uuid");
 
 // Create new car
 const createCar = (req, res) => {
   try {
-    const id = Math.round(Math.random() * 123456789);
+    const id = uuidv4();
     const { rentPerDay, capacity, description, availableAt } = req.body;
     const images = req.file.path;
 
@@ -13,9 +14,25 @@ const createCar = (req, res) => {
         .json({ message: "Please masukan data dengan benar" });
     }
 
-    dataCars.push({ id, rentPerDay, capacity, description, availableAt, images });
-    const newData = { id, rentPerDay, capacity, description, availableAt, images };
-    res.status(201).json({ message: "Create data successfully", newData });
+    dataCars.push({
+      id,
+      rentPerDay,
+      capacity,
+      description,
+      availableAt,
+      images,
+    });
+    const newData = {
+      id,
+      rentPerDay,
+      capacity,
+      description,
+      availableAt,
+      images,
+    };
+    res
+      .status(201)
+      .json({ message: "Create data successfully", data: newData });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -26,7 +43,7 @@ const getCars = (req, res) => {
   try {
     res.status(200).json({
       message: "Get All Data Car Successfully",
-      dataCars,
+      data: dataCars,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -36,11 +53,10 @@ const getCars = (req, res) => {
 // get cars by id
 const getCarById = (req, res) => {
   try {
-    const id = req.params.id;
-    const getCarById = dataCars.find((item) => item.id === Number(id));
+    const getCarById = req.currentCar;
     res
       .status(200)
-      .json({ message: "Get Data Car By Id Successfully", getCarById });
+      .json({ message: "Get Data Car By Id Successfully", data: getCarById });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -49,12 +65,9 @@ const getCarById = (req, res) => {
 // update cars
 const updateCar = (req, res) => {
   try {
-    const id = req.params.id;
-    const newId = Math.round(Math.random() * 123456789);
     const { rentPerDay, capacity, description, availableAt } = req.body;
     const images = req.file.path;
-    const getCarById = dataCars.find((item) => item.id === Number(id));
-    getCarById.id = newId;
+    const getCarById = req.currentCar;
     getCarById.rentPerDay = rentPerDay;
     getCarById.capacity = capacity;
     getCarById.description = description;
@@ -62,7 +75,7 @@ const updateCar = (req, res) => {
     getCarById.images = images;
     res
       .status(201)
-      .json({ message: "Update Data Car Successfully", getCarById });
+      .json({ message: "Update Data Car Successfully", data: getCarById });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -71,11 +84,10 @@ const updateCar = (req, res) => {
 // delete cars
 const deleteCar = (req, res) => {
   try {
-    const id = req.params.id;
-    const deleteCar = dataCars.filter((item) => item.id !== Number(id));
-    res
-      .status(200)
-      .json({ message: "Delete Data Car Successfully", deleteCar });
+    const id = req.currentCar.id;
+    const deleteCar = dataCars.filter((item) => item.id !== id);
+    dataCars = deleteCar;
+    res.status(200).json({ message: "Delete Data Car Successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

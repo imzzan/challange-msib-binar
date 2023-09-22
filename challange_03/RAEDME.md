@@ -6,6 +6,7 @@
 5. kemudian buka postman untuk pengecekan project
 6. untuk method get langsung aja send urlnya
 7. untuk method put dan post pilih body kemudian pilih form-data buat menambahkan data dan memperbarui data
+8. untuk images key dalam postmannya dengan nama images dan typenya file
 
 <!-- Endpoint and mathod -->
 /cars : post
@@ -16,7 +17,7 @@
 
 
 <!-- Data Cars -->
-id : number
+id : string
 rentPerDay : number
 capacity : number
 description : string

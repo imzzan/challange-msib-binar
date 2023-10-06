@@ -40,3 +40,4 @@ image : image dari kak haris sendiri hehe kalo pake postman
 
 <!-- Link ERD -->
 https://dbdiagram.io/d/erd_cars-65166ab2ffbf5169f0b7a279
+![alt text](https://github.com/imzzan/challange-msib-binar/blob/main/challange_04/public/erd_cars.png?raw=true)

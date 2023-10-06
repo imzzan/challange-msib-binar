@@ -75,7 +75,7 @@ const updateCar = async (req, res) => {
 
     const filePth = `./public/${req.carById.image}`;
     fs.unlinkSync(filePth)
-    res.status(201).json({ message: "cars is successfully updated"});
+    res.status(201).json({ message: "cars is successfully updated", data : response});
   } catch (error) {
     console.log(error);
     res.status(500).json({message : error.message})

@@ -68,6 +68,17 @@ const logout = (req, res) => {
   }
 };
 
+const currentUser = (req, res) => {
+  try {
+    res.status(200).json({ status: "Ok", message: "Success", data: req.user });
+  } catch (error) {
+    res.status(500).json({
+      status: "FAIL",
+      message: error.message,
+    });
+  }
+}
+
 const refreshToken = (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
@@ -93,5 +104,6 @@ module.exports = {
   createUserAdmin,
   login,
   logout,
+  currentUser,
   refreshToken,
 };

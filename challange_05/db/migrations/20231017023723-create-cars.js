@@ -69,11 +69,19 @@ module.exports = {
       },
       updatedBy: {
         type: Sequelize.UUID,
-        allowNull : true
+        allowNull : true,
+        references : {
+          model : "Users",
+          key : "id"
+        }
       },
       deletedBy: {
         type: Sequelize.UUID,
-        allowNull : true
+        allowNull : true,
+        references : {
+          model : "Users",
+          key : "id"
+        }
       },
       createdAt: {
         allowNull: false,

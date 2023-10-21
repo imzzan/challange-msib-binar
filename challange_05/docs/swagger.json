@@ -524,6 +524,117 @@
         }
       }
     },
+    "/auth/current-user": {
+      "get": {
+        "tags": ["Authentication and Authorization"],
+        "summary": "Current User",
+        "description": "Curennt user information who is registred",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "default": "OK"
+                    },
+                    "message": {
+                      "type": "string",
+                      "default": "Success"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "userId" : {
+                          "type":  "string"
+                        },
+                        "email" : {
+                          "type": "string",
+                          "default" : "example@gmail.com"
+                        },
+                        "role" : {
+                          "type":  "string",
+                          "default" : "superadmin | admin | member"
+                        },
+                        "iat" : {
+                          "type": "number"
+                        },
+                        "exp" : {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error in client side",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "default": "FAILD"
+                    },
+                    "message": {
+                      "type": "string",
+                      "default": "Client error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "If user input password is not the same with confirm password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "default": "FAILD"
+                    },
+                    "message": {
+                      "type": "string",
+                      "default": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error in Ssrver",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "default": "FAILD"
+                    },
+                    "message": {
+                      "type": "string",
+                      "default": "Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/cars": {
       "post": {
         "tags": ["Cars"],

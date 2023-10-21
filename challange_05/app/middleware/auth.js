@@ -11,6 +11,7 @@ const userAuthorized = (req, res, next) => {
     const token = beareeToken[1];
     const user = authServices.verifyToken(token, process.env.ACCESS_TOKEN);
     req.userId = user.userId;
+    req.user = user;
     next();
   } catch (error) {
     res.status(500).json({

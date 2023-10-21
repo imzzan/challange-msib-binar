@@ -58,4 +58,4 @@ type : small
 image : image dari kak haris sendiri hehe kalo pake postman
 
 <!-- Link ERD -->
-![alt text](https://github.com/imzzan/challange-msib-binar/blob/main/challange_05/public/erd_auth.png?raw=true)
+![alt text](https://github.com/imzzan/challange-msib-binar/blob/main/challange_05/public/erd_05.png?raw=true)

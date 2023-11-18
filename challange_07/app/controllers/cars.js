@@ -2,14 +2,14 @@ const carsServices = require('../services/cars.js')
 
 const createCar = async (req, res) => {
   try {
-    const { nameCar, rentPerDay, capacity, description, availableAt, type } = req.body
+    const { name, rentPerDay, capacity, description, availableAt, type } = req.body
     const image = req.file.path
     const imageName = image.replace('public\\', '')
     const image_url = `${req.protocol}://${req.get('host')}/${imageName}`
     const userId = req.userId
 
     const body = {
-      name: nameCar,
+      name,
       rentPerDay,
       capacity,
       description,
@@ -70,7 +70,7 @@ const getCarById = async (req, res) => {
 
 const updateCar = async (req, res) => {
   try {
-    const { nameCar, rentPerDay, capacity, description, availableAt, type } =
+    const { name, rentPerDay, capacity, description, availableAt, type } =
       req.body
     const image = req.file.path
     const imageName = image.replace('public\\', '')
@@ -87,7 +87,7 @@ const updateCar = async (req, res) => {
     }
 
     const body = {
-      name: nameCar,
+      name,
       rentPerDay,
       capacity,
       description,

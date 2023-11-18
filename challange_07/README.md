@@ -1,6 +1,6 @@
 <!-- Cara menjalankan chllange 03 -->
 1. Clone repository ini
-2. Buka terminal dan arahkan ke directory challange_04 dengan cara cd challange_05
+2. Buka terminal dan arahkan ke directory challange_04 dengan cara cd challange_07
 3. Lakukan npm install untuk menginstall dependency yang digunakan
 4. Lakukan npm run dev untuk menjalalankan project ini
 
@@ -19,7 +19,7 @@ Password : 12345678
 Role : superadmin
 
 <!-- link -->
-http://localhost:3004
+https://latihan-deploy-production.up.railway.app
 
 <!-- Enpoint and mathod pada auth -->
 /auth/register-admin : post

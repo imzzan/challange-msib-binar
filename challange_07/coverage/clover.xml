@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700130314427" clover="3.2.0">
-  <project timestamp="1700130314427" name="All files">
+<coverage generated="1700272478346" clover="3.2.0">
+  <project timestamp="1700272478347" name="All files">
     <metrics statements="245" coveredstatements="218" conditionals="21" coveredconditionals="17" methods="11" coveredmethods="10" elements="277" coveredelements="245" complexity="0" loc="245" ncloc="245" packages="1" files="2" classes="2"/>
     <file name="cars.js" path="C:\Users\Administrator\OneDrive\Documents\Challange MSIB\challange_07\app\controllers\cars.js">
       <metrics statements="136" coveredstatements="130" conditionals="11" coveredconditionals="9" methods="5" coveredmethods="5"/>

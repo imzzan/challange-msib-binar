@@ -17,7 +17,7 @@ jest.mock('../services/cars.js', () => ({
 
 const car = {
   id: '23d7t3dg8ysusq',
-  nameCar: 'BMW',
+  name: 'BMW',
   rentPerDay: 2000,
   capacity: 5,
   description: 'this is description',
@@ -33,7 +33,7 @@ describe('#createCar', () => {
   it('Should return 200 success create cars', async () => {
     const mockRequest = {
       body: {
-        nameCar: 'BMW',
+        name: 'BMW',
         rentPerDay: 2000,
         capacity: 5,
         description: 'this is description',
@@ -68,7 +68,7 @@ describe('#createCar', () => {
     const error = new Error('failed')
     const mockRequest = {
       body: {
-        nameCar: 'BMW',
+        name: 'BMW',
         rentPerDay: 2000,
         capacity: 5,
         description: 'this is description',
@@ -161,7 +161,7 @@ describe('#Update Car', () => {
   it('should return 200 success update car', async () => {
     const mockRequest = {
       body: {
-        nameCar: 'BMW',
+        name: 'BMW',
         rentPerDay: 2000,
         capacity: 5,
         description: 'this is description',
@@ -203,7 +203,7 @@ describe('#Update Car', () => {
 
     const mockRequest = {
       body: {
-        nameCar: 'BMW',
+        name: 'BMW',
         rentPerDay: 2000,
         capacity: 5,
         description: 'this is description',
